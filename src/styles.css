@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+:root {
+  /* *Primary Color */
+  --primary-red: hsl(14, 86%, 42%);
+  --secondary-green: hsl(159, 69%, 38%);
+
+  /* *Accent Color */
+  --rose-50: hsl(20, 50%, 98%);
+  --rose-100: hsl(13, 31%, 94%);
+  --rose-300: hsl(14, 25%, 72%);
+  --rose-400: hsl(7, 20%, 60%);
+  --rose-500: hsl(12, 20%, 44%);
+  --rose-900: hsl(14, 65%, 9%);
+
+  /* *Base size */
+  font-size: 16px;
+
+  /* *Typography */
+  --font-red-hat: "Red Hat Text", sans-serif;
+  --fw-400: 400;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 1px solid beige;
+}
+
+body {
+  font-family: var(--font-red-hat);
+  font-size: var(--base-size);
+  line-height: 160%;
+  background-color: var(--rose-50);
+  padding: 4rem 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+.main-display {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.dessert-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.heading-1 {
+  font-size: 3rem;
+  color: var(--rose-900);
+}
+
+/* *Main Section */
+.main-section-header {
+  padding: 2rem 0;
+}
+
+/* *Card */
+.card-header {
+  position: relative;
+  margin-bottom: 2.25rem;
+}
+
+.card-controller {
+  position: absolute;
+  top: 90%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.cart-btn {
+  cursor: pointer;
+  color: var(--primary-red);
+
+  display: inline-block;
+  min-width: 10rem;
+  padding: 0.8rem 0;
+  display: flex;
+
+  border-radius: 1.5rem;
+  border: none;
+  box-shadow: 0 0 0 1px var(--primary-red);
+  font-family: inherit;
+  font-weight: var(--fw-600);
+  font-size: 1rem;
+  letter-spacing: -0.0125rem;
+}
+
+.cart-btn-content-center {
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-btn-clr {
+  background-color: var(--primary-red);
+  color: var(--rose-100);
+}
+
+.cart-btn-active-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-header-img {
+  border-radius: 1rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.card-content-category {
+  color: var(--rose-300);
+  font-size: 0.8rem;
+}
+
+.card-content-title {
+  color: var(--rose-500);
+  font-weight: var(--fw-600);
+  font-size: 1rem;
+}
+
+.card-content-price {
+  color: var(--primary-red);
+  font-weight: var(--fw-700);
+  font-size: 1.25rem;
+}
+
+@media screen and (min-width: 1440px) {
+}
