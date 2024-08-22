@@ -1,12 +1,32 @@
 import { useState } from "react";
 import { FaCartPlus, FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
+//* Dessert Item
 export default function DessertItem({ dessertObj }) {
+  //* Local Component State
   const [changeCartBtn, setChangeCartBtn] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
+  //* Handler function
   function handleChangeBtn() {
     setChangeCartBtn((changeCartBtn) => !changeCartBtn);
     console.log(changeCartBtn);
+  }
+
+  function handleDecreaseQty() {
+    if (quantity === 0) {
+      return;
+    }
+
+    setQuantity((quantity) => quantity - 1);
+  }
+
+  function handleIncreaseQty() {
+    setQuantity((quantity) => quantity + 1);
+  }
+
+  function checkNumberIfInt(quantity) {
+    return Number.isInteger(quantity) ? `${quantity}.00` : `${quantity}0`;
   }
 
   return (
@@ -20,40 +40,33 @@ export default function DessertItem({ dessertObj }) {
           />
 
           <div className="card-controller">
-            <button
-              className={
-                changeCartBtn === false
-                  ? "cart-btn cart-btn-content-center"
-                  : "cart-btn cart-btn-clr"
-              }
-              onClick={handleChangeBtn}
-            >
-              {changeCartBtn === false ? (
-                <>
-                  <FaCartPlus size={16} />
-                  Add to Cart
-                </>
-              ) : (
-                <>
-                  <div className="cart-btn-active-container">
-                    <button className="cart-btn-active">
-                      <FaMinusCircle size={20} />
-                    </button>
-                    <p>1</p>
-                    <button className="cart-btn-active">
-                      <FaPlusCircle size={20} />
-                    </button>
-                  </div>
-                </>
-              )}
-            </button>
+            {changeCartBtn === false ? (
+              <button className="cart-btn" onClick={handleChangeBtn}>
+                <FaCartPlus size={16} />
+                Add to Cart
+              </button>
+            ) : (
+              <div className="cart-quantity-controller">
+                <button onClick={handleDecreaseQty}>
+                  <FaMinusCircle />
+                </button>
+
+                <span className="cart-quantity">{quantity}</span>
+
+                <button onClick={handleIncreaseQty}>
+                  <FaPlusCircle />
+                </button>
+              </div>
+            )}
           </div>
         </header>
 
         <main className="card-content">
           <p className="card-content-category">{dessertObj.category}</p>
           <h3 className="card-content-title">{dessertObj.name}</h3>
-          <p className="card-content-price">$ {dessertObj.price}</p>
+          <p className="card-content-price">
+            $ {checkNumberIfInt(+dessertObj.price)}
+          </p>
         </main>
       </article>
     </li>
